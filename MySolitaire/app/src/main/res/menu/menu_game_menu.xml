@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/play_klondike"
+        android:orderInCategory="99"
+        android:title="@string/play_klondike"
+        app:showAsAction="ifRoom" />
 </menu>
