@@ -17,9 +17,7 @@ android {
         }
     }
     buildToolsVersion '28.0.1'
-    dexOptions {
-        incremental true
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
