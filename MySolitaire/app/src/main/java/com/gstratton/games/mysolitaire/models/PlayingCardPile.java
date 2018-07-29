@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * One of the playing card piles in Klondike
+ * One of the playing card piles in KlondikeGame
  */
 public class PlayingCardPile {
 

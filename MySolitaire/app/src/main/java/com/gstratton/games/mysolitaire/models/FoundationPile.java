@@ -11,7 +11,7 @@ import java.util.Stack;
  *
  * Once a card is played on a foundation, it can't be removed.
  *
- * NOTE: Some computer versions of Klondike Solitaire allow you to move cards back and
+ * NOTE: Some computer versions of KlondikeGame Solitaire allow you to move cards back and
  * forth between the foundations and the tableau. This alternative rule makes the game
  * a bit easier to win.
  */

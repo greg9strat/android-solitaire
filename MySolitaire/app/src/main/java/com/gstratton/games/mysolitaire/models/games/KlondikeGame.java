@@ -1,9 +1,16 @@
-package com.gstratton.games.mysolitaire.models;
+package com.gstratton.games.mysolitaire.models.games;
+
+import com.gstratton.games.mysolitaire.models.Deck;
+import com.gstratton.games.mysolitaire.models.DrawPile;
+import com.gstratton.games.mysolitaire.models.FoundationPile;
+import com.gstratton.games.mysolitaire.models.Game;
+import com.gstratton.games.mysolitaire.models.PlayingCardPile;
+import com.gstratton.games.mysolitaire.models.Suits;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Klondike implements Game {
+public class KlondikeGame implements Game {
 
     private Deck deckOfCards;
 
@@ -16,7 +23,7 @@ public class Klondike implements Game {
 
     private List<FoundationPile> foundationPiles;
 
-    public Klondike(){
+    public KlondikeGame(){
         this.deckOfCards = Deck.create();
         this.tableau = new ArrayList<>();
         this.foundationPiles = new ArrayList<>();
