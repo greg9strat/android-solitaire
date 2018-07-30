@@ -10,4 +10,6 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="play_klondike">Play Klondike</string>
     <string name="card_fragment_contentDescription">suit</string>
+    <string name="cards_remaining_label"># Cards Remaining:</string>
+    <string name="new_deal">New Deal</string>
 </resources>

@@ -1,51 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context=".models.games.PlayKlondikeActivity">
+    android:background="@color/green_table"
+    tools:context=".models.games.PlayKlondike2Activity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="drawCard"
+        android:scaleType="centerInside"
+        android:src="@drawable/deck" />
 
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
+    <Button
+        android:id="@+id/btn_new_deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="127dp"
+        android:onClick="newDeal"
+        android:text="@string/new_deal" />
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="@color/green_table"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/pile1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+        <ImageView
+            android:id="@+id/pile2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
 
-        </LinearLayout>
-    </FrameLayout>
+        <ImageView
+            android:id="@+id/pile3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/pile4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/pile5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/pile6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/pile7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblCardsRemaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="141dp"
+        android:text="@string/cards_remaining_label" />
+
+    <TextView
+        android:id="@+id/txtCardsRemainingCount"
+        android:layout_width="107dp"
+        android:layout_height="58dp"
+        android:layout_alignStart="@+id/lblCardsRemaining"
+        android:layout_below="@+id/btn_new_deal"
+        android:text="0"
+        android:textSize="30sp"
+        android:layout_alignLeft="@+id/lblCardsRemaining" />
+
+    <TextView
+        android:id="@+id/lblDrawCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/lblCardsRemaining"
+        android:layout_marginEnd="75dp"
+        android:text="# Draws:" />
+
+    <TextView
+        android:id="@+id/txtDrawCount"
+        android:layout_width="85dp"
+        android:layout_height="56dp"
+        android:layout_alignStart="@+id/lblDrawCount"
+        android:layout_below="@+id/btn_new_deal"
+        android:text="0"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/txtVisibleCard_DrawPile"
+        android:layout_width="99dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/lblCardsRemaining"
+        android:layout_marginTop="17dp" />
+
+
+</RelativeLayout>
