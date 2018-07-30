@@ -4,6 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 public class PlayingCard implements Parcelable, Comparable<PlayingCard> {
 
 //    private const String[] NUMBERS = ['A','1','2','3','4','5','6','7','8','9','10','J','Q','K']
@@ -127,4 +130,42 @@ public class PlayingCard implements Parcelable, Comparable<PlayingCard> {
         return Byte.compare(this.getRank(), playingCard.getRank());
     }
 
+    /**
+     * Calculates a hash for this instance.
+     *
+     * @return
+     * @implNote Note: the private field {@boolean isFaceUp} was purposely omitted from this hash.
+     *           The uniqueness of this object doesn't differ if a playing card is facing a
+     *           particular direction. An Ace of Spaces is still an Ace of Spades, regardless of
+     *           where it points.
+     */
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(this.suit)
+                .append(this.rank)
+                .toHashCode();
+    }
+
+    /**
+     * Comparator for playing cards. Equivalence is based on basic properties: suit and rank.
+     *
+     * @param obj
+     * @return
+     * @implNote Similar to the hashCode() implementation, this omits the trivial property isFaceUp.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof PlayingCard) {
+            final PlayingCard other = (PlayingCard)obj;
+            return new EqualsBuilder()
+                    .append(this.suit, other.suit)
+                    .append(this.rank, other.rank)
+                    .isEquals();
+
+        } else {
+            return false;
+        }
+
+    }
 }

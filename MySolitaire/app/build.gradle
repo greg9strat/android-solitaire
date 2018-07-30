@@ -31,7 +31,8 @@ dependencies {
             'com.android.support.constraint:constraint-layout:1.1.2',
             'com.android.support:design:27.1.1',
             'com.android.support:support-v4:27.1.1',
-            'com.jakewharton:butterknife:8.8.1'
+            'com.jakewharton:butterknife:8.8.1',
+            'org.apache.commons:commons-lang3:3.7'
     )
     annotationProcessor (
             'com.jakewharton:butterknife-compiler:8.8.1'
