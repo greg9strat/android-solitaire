@@ -40,6 +40,8 @@ public class KlondikeGame implements Game {
     public int getDrawCounter() {return this.drawCounter;}
     public int getRemainingDrawCount() {return this.drawPile.getCardsRemaining();}
     public Stack<PlayingCard> getDiscardPile() {return this.discardPile;}
+    public List<FoundationPile> getFoundationPiles() {return this.foundationPiles;}
+    public List<PlayingCardPile> getTableau() {return this.tableau;}
 
     public void setup() {
         Log.i(LOG_TAG, "Setting up game...");
@@ -104,6 +106,11 @@ public class KlondikeGame implements Game {
             if (this.drawPile.getCardsRemaining() < 1) {
                 Log.d(LOG_TAG, "Draw pile empty, resetting it.");
 
+                // TODO: something is still reversing the order of the cards - after resetting,
+                //       then the user sees the cards in the stack in reverse order...
+                //       For example, new deal; then click on deck 24 times (to exhaust it); it
+                //       should go empty; and then on the next click, you'll see the most recent
+                //       card that was pulled; and then the 2nd-most recent; and then...etc.
                 Stack<PlayingCard> reversedStack = new Stack<>();
                 for (PlayingCard card : this.discardPile) {
                     reversedStack.push(card);
@@ -138,4 +145,6 @@ public class KlondikeGame implements Game {
         this.discardPile = new Stack<>();
         this.drawPile = null;
     }
+
+
 }

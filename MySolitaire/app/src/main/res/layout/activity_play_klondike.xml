@@ -26,10 +26,56 @@
         android:text="@string/new_deal" />
 
     <LinearLayout
+        android:id="@+id/foundationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_above="@+id/pileLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/foundation1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/foundation2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/foundation3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+
+        <ImageView
+            android:id="@+id/foundation4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="@dimen/card_tableau_padding"
+            android:scaleType="centerInside"
+            android:src="@drawable/deck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pileLayout"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:background="@color/green_table"
+        android:layout_height="207dp"
         android:layout_alignParentBottom="true"
+        android:background="@color/green_table"
         android:orientation="horizontal"
         android:padding="15dp">
 
@@ -98,53 +144,97 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/stackLayout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/txtPile1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/txtPile2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/txtPile3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/txtPile4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/txtPile5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/txtPile6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/txtPile7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/lblCardsRemaining"
-        android:layout_width="wrap_content"
+        android:layout_width="74dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="13dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="141dp"
-        android:text="@string/cards_remaining_label" />
+        android:layout_marginTop="29dp"
+        android:layout_toStartOf="@+id/txtDrawCount"
+        android:text="@string/cards_remaining_label"
+        android:layout_toLeftOf="@+id/txtDrawCount" />
 
     <TextView
         android:id="@+id/txtCardsRemainingCount"
-        android:layout_width="107dp"
-        android:layout_height="58dp"
-        android:layout_alignStart="@+id/lblCardsRemaining"
-        android:layout_below="@+id/btn_new_deal"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/lblCardsRemaining"
         android:text="0"
-        android:textSize="30sp"
-        android:layout_alignLeft="@+id/lblCardsRemaining" />
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:id="@+id/lblDrawCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/lblCardsRemaining"
-        android:layout_marginEnd="75dp"
-        android:text="# Draws:" />
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="76dp"
+        android:text="# Draws:"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="76dp" />
 
     <TextView
         android:id="@+id/txtDrawCount"
-        android:layout_width="85dp"
-        android:layout_height="56dp"
-        android:layout_alignStart="@+id/lblDrawCount"
-        android:layout_below="@+id/btn_new_deal"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
         android:text="0"
-        android:textSize="30sp" />
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:id="@+id/txtVisibleCard_DrawPile"
-        android:layout_width="99dp"
-        android:layout_height="55dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/lblCardsRemaining"
-        android:layout_marginTop="17dp" />
+        android:layout_width="88dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
 
 </RelativeLayout>

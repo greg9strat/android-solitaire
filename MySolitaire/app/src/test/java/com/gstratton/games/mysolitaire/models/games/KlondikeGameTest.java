@@ -42,5 +42,8 @@ class KlondikeGameTest {
 
         assertNotNull(game.getDiscardPile());
 
+        for (int i = 0; i < originalDiscardPile.size(); i++) {
+            assertEquals(originalDiscardPile.get(i), resetDiscardPile.get(i), "Cards do not match at position " + i);
+        }
     }
 }

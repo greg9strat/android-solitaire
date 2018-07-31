@@ -12,4 +12,5 @@
     <string name="card_fragment_contentDescription">suit</string>
     <string name="cards_remaining_label"># Cards Remaining:</string>
     <string name="new_deal">New Deal</string>
+    <string name="empty">(Empty)</string>
 </resources>

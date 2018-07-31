@@ -9,8 +9,11 @@ import android.widget.TextView;
 
 import com.gstratton.games.mysolitaire.R;
 import com.gstratton.games.mysolitaire.models.PlayingCard;
+import com.gstratton.games.mysolitaire.models.PlayingCardPile;
 
 import java.util.EmptyStackException;
+import java.util.List;
+import java.util.Stack;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +54,22 @@ public class PlayKlondike2Activity extends AppCompatActivity {
     @BindView(R.id.txtVisibleCard_DrawPile)
     TextView visibleDrawPile;
 
+    @BindView(R.id.txtPile1)
+    TextView txtPile1;
+
+    @BindView(R.id.txtPile2)
+    TextView txtPile2;
+    @BindView(R.id.txtPile3)
+    TextView txtPile3;
+    @BindView(R.id.txtPile4)
+    TextView txtPile4;
+    @BindView(R.id.txtPile5)
+    TextView txtPile5;
+    @BindView(R.id.txtPile6)
+    TextView txtPile6;
+    @BindView(R.id.txtPile7)
+    TextView txtPile7;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(LOG_TAG, "Creating new activity");
@@ -81,7 +100,27 @@ public class PlayKlondike2Activity extends AppCompatActivity {
             }
         } catch (EmptyStackException e) {
             // no cards left to draw from, deck was likely addCards
-            this.visibleDrawPile.setText("");
+            this.visibleDrawPile.setText(R.string.empty);
+        }
+
+        List<PlayingCardPile> tableau = game.getTableau();
+        if (!tableau.isEmpty()) {
+            txtPile1.setText(getTableauPileString(tableau.get(0).getStackOfCards()));
+            txtPile2.setText(getTableauPileString(tableau.get(1).getStackOfCards()));
+            txtPile3.setText(getTableauPileString(tableau.get(2).getStackOfCards()));
+            txtPile4.setText(getTableauPileString(tableau.get(3).getStackOfCards()));
+            txtPile5.setText(getTableauPileString(tableau.get(4).getStackOfCards()));
+            txtPile6.setText(getTableauPileString(tableau.get(5).getStackOfCards()));
+            txtPile7.setText(getTableauPileString(tableau.get(6).getStackOfCards()));
+        }
+    }
+
+    public String getTableauPileString(Stack<PlayingCard> tableauStack) {
+        if (tableauStack == null || tableauStack.isEmpty()) {
+            return getString(R.string.empty);
+        } else {
+            // set the text to the top card
+            return tableauStack.peek().toString();
         }
     }
 

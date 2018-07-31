@@ -27,8 +27,7 @@ public class Deck {
     public static Deck create() {
         Stack<PlayingCard> cardsInDeck = new Stack<>();
 
-        for (Suits suit :
-                Suits.values()) {
+        for (Suits suit : Suits.values()) {
             for(byte i = 1; i < 14; i++) {
                 cardsInDeck.push(new PlayingCard(suit, i));
             }
@@ -42,8 +41,7 @@ public class Deck {
      */
     public void shuffle() {
         Log.i(LOG_TAG, "Shuffling deck.");
-        // If running on Java 6 or older, use `new Random()` on RHS here
-//        Random rnd = ThreadLocalRandom.current();
+
         Random rnd = new Random();
 
         Log.d(LOG_TAG, String.format("There are currently %d cards in the deck.", this.cards.size()));
